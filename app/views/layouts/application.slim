@@ -9,7 +9,10 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
     .row.chat-container
-      .channels.col-md-2.sidebar
-        = render partial: 'shared/sidebar'
+      .col-md-2.sidebar
+        .channels
+          = render partial: 'shared/sidebar'
+        .sign-out
+          a.justify-content-center.d-flex href='#' = 'Sign Out'
       .chatbox.col-md-10
         = yield
