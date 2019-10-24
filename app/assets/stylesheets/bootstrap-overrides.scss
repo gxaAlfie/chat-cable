@@ -1,0 +1,12 @@
+.alert {
+  border: none;
+}
+
+.alert-danger {
+  color: white;
+  background-color: #721c24;
+
+  button.close {
+    color: white;
+  }
+}

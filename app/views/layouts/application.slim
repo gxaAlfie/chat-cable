@@ -13,6 +13,6 @@ html
         .channels
           = render partial: 'shared/sidebar'
         .sign-out
-          a.justify-content-center.d-flex href='#' = 'Sign Out'
+          = link_to 'Sign Out', destroy_user_session_path, class: 'justify-content-center d-flex', method: :delete
       .chatbox.col-md-10
         = yield

@@ -1,0 +1,54 @@
+.btn.btn-primary, .btn.btn-primary:not(:disabled):not(.disabled):active {
+  background-color: #3dce85;
+  border-color: #3dce85;
+}
+
+.page {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background-color: #cad9eb;
+
+  &--centered {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+.form-container {
+  width: 400px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: #4278B8;
+  color: white;
+}
+
+.signup, .login {
+  li {
+    list-style: none;
+  }
+}
+
+.signup {
+  li.error {
+    input {
+      border: 3px solid #721c24;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+
+    p.inline-errors {
+      color: white;
+      background: #721c24;
+      padding: 2px 2px 2px 4px;
+    }
+  }
+}
+
+.login {
+  .alert {
+    width: 400px;
+  }
+}

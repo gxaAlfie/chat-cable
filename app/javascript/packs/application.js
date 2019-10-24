@@ -7,6 +7,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require('bootstrap/dist/js/bootstrap')
+require('login/alert-timeout')
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

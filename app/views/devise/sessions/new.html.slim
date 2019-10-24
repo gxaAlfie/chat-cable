@@ -1,0 +1,18 @@
+.login.page.page--centered
+  - flash.each do |key, content|
+    - if content.present?
+      div class=("alert alert-#{key == 'notice' ? 'success' : 'danger'}")
+        span = content
+
+  .form-container
+    h2 = 'Login'
+
+    = semantic_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      = f.input :username, autofocus: true, input_html: { class: 'form-control' }, required: false
+      = f.input :password, input_html: { class: 'form-control' }, as: :password, required: false
+      - if devise_mapping.rememberable?
+        .form-group
+          = f.check_box :remember_me
+          = f.label :remember_me
+      .actions.d-flex
+        = f.submit 'Log in', class: 'btn btn-primary'

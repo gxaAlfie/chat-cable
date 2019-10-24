@@ -1,8 +1,8 @@
 .sidebar {
   padding: 0px;
   height: 100vh;
-  border-right: 3px solid rgba(73, 67, 104, 1);
-  background-color: rgba(73, 67, 104, 0.9);
+  border-right: 3px solid #cad9eb;
+  background-color: #4278B8;
   color: white;
   text-align: left;
 
@@ -30,7 +30,7 @@
     .list-group-item {
       text-decoration: none;
       color: white;
-      background-color: rgba(73, 67, 104, 0.9);
+      background-color: #4278B8;
       border: 0px;
 
       &:not(.highlightable) {
@@ -40,7 +40,8 @@
       }
 
       &.highlightable:hover {
-        background-color: #333;
+        color: #4278B8;
+        background-color: white;
       }
     }
   }
@@ -53,7 +54,7 @@
 
   .sign-out {
     height: 5vh;
-    background-color: rgba(73, 67, 104, 0.9);
+    background-color: #4278B8;
 
     a {
       padding: 0.75rem 1.25rem;
@@ -61,7 +62,8 @@
       color: white;
 
       &:hover {
-        background-color: #333;
+        color: #4278B8;
+        background-color: white;
       }
     }
   }
