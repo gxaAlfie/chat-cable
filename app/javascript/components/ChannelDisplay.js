@@ -1,11 +1,13 @@
 import React from 'react'
 import MessageChannel from './MessageChannel'
+import ChatArea from './ChatArea'
 import ActionCable from 'actioncable'
 
 class ChannelDisplay extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      messages: props.messages,
       message: 'doodle',
     }
     this.App || (this.App = {});
@@ -30,8 +32,7 @@ class ChannelDisplay extends React.Component {
     return (
       <React.Fragment>
         <MessageChannel app={this.App} newMessageReceived={this.newMessageReceived}/>
-        <div className='chat-area'>
-        </div>
+        <ChatArea messages={this.state.messages}/>
         <div className='input-group chat-input'>
           <input type='text' className='form-control' placeholder='Enter Message...' onKeyDown={this.sendMessage.bind(this)}/>
         </div>

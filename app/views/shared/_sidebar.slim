@@ -1,5 +1,5 @@
 .sidebar-contents.col-md-12
-  h4.sidebar-header = 'Username'
+  h4.sidebar-header = 'Chat Cable'
   hr
   ul.list-group.list-unstyled
     li
@@ -7,11 +7,10 @@
         = 'Channels'
 
       ul#channels-submenu.collapse.list-unstyled.show.list-group.sub-menu
-        li
-          a.d-flex.justify-content-between.align-items-center.list-group-item.highlightable href='#'
-            = 'Channel 2'
-            span.badge.badge-primary.badge-pill = '12'
-        li
-          a.d-flex.justify-content-between.align-items-center.list-group-item.highlightable href='#'
-            = 'Channel 2'
-            span.badge.badge-primary.badge-pill = '12'
+        - @channels.each do |channel|
+          li
+            a.d-flex.justify-content-between.align-items-center.list-group-item.highlightable href='#'
+              = channel.name
+
+              - unless channel.message_count.zero?
+                span.badge.badge-primary.badge-pill = channel.message_count
