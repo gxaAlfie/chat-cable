@@ -6,6 +6,7 @@ class User < ApplicationRecord
   validates :username, uniqueness: true, presence: true
 
   has_many :messages, dependent: :delete_all
+  has_one_attached :image
 
   def email_required?
     false

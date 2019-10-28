@@ -6,6 +6,7 @@
       = f.input :username, autofocus: true, input_html: { class: 'form-control' }, required: false
       = f.input :password, input_html: { class: 'form-control' }, as: :password, required: false
       = f.input :password_confirmation, input_html: { class: 'form-control' }, as: :password
+      = f.file_field :image, class: 'form-control-file'
       br
       .actions.d-flex
         = f.submit 'Sign up', class: 'btn btn-primary'
