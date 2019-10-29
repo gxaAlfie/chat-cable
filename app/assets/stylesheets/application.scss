@@ -1,6 +1,7 @@
 @import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-overrides';
 @import 'container';
 @import 'chatbox';
 @import 'sidebar';
 @import 'devise';
-@import 'bootstrap-overrides';
+@import 'message';
