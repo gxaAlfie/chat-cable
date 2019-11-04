@@ -20,18 +20,40 @@ class ChannelDisplay extends React.Component {
     if (enterEvent || sendButtonClickEvent) {
       const message = $("input[type='text']").val().trim()
       $("input[type='text']").val('')
-      this.App.messageSubscription.perform('send_message', { message })
+      this.App.messageSubscription.perform('send_message', { message, channel_id: this.props.channel.id, user_id: this.props.user.id })
     }
   }
 
   newMessageReceived(data) {
-    $('.chat-area').append(`<div>${data.message}</div>`)
+    let { messages } = this.state
+    messages.push(data.message)
+
+    this.setState({ messages }, () => {
+      this.updateBadgeCount()
+      this.scrollToBottom()
+    })
+  }
+
+  updateBadgeCount() {
+    let $channelElement = $('.list-group-item:not(.dropdown-toggle)')
+
+    if ($channelElement.is('.active')) {
+      $channelElement = $channelElement.filter('.active')
+    } else {
+      $channelElement = $channelElement.first()
+    }
+    $channelElement.find('span.badge').html(this.state.messages.length).removeClass('d-none')
+  }
+
+  scrollToBottom() {
+    const topCoordOfLastMessage = $('.media.message').last().get(0).offsetTop
+    $('.chat-area').animate({ scrollTop: topCoordOfLastMessage }, 1000)
   }
 
   render () {
     return (
       <React.Fragment>
-        <MessageChannel app={this.App} newMessageReceived={this.newMessageReceived}/>
+        <MessageChannel app={this.App} newMessageReceived={this.newMessageReceived.bind(this)}/>
         <ChatArea messages={this.state.messages}/>
         <div className='input-group chat-input'>
           <input type='text' className='form-control' placeholder='Enter Message...' onKeyDown={this.sendMessage.bind(this)}/>

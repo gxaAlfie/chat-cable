@@ -6,5 +6,7 @@ Rails.application.routes.draw do
     resources :images, only: :show
   end
 
-  root to: 'messages#index'
+  resources :channels, only: :show
+
+  root to: 'channels#show'
 end

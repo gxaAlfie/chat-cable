@@ -4,6 +4,6 @@ class MessagesChannel < ApplicationCable::Channel
   end
 
   def send_message(data)
-    ActionCable.server.broadcast('MessagesChannel', { message: data['message'] })
+    MessageServices::Messenger.new(data).call
   end
 end

@@ -28,6 +28,7 @@
     }
 
     .list-group-item {
+      border-radius: 0px;
       text-decoration: none;
       color: white;
       background-color: #4278B8;
@@ -39,7 +40,7 @@
         align-items: center;
       }
 
-      &.highlightable:hover {
+      &.highlightable:hover, &.active {
         color: #4278B8;
         background-color: white;
       }
@@ -66,8 +67,8 @@
       color: white;
 
       &:hover {
-        color: #4278B8;
-        background-color: white;
+        color: white;
+        background-color: #721c24;
       }
     }
   }
