@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   mount ActionCable.server => '/cable'
 
+  resources :users, only: [:edit, :update]
+
   scope module: 'user' do
     resources :images, only: :show
   end

@@ -9,7 +9,6 @@ require("channels")
 require('bootstrap/dist/js/bootstrap')
 require('login/alert-timeout')
 
-
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -20,3 +19,7 @@ require('login/alert-timeout')
 var componentRequireContext = require.context("components", true);
 var ReactRailsUJS = require("react_ujs");
 ReactRailsUJS.useContext(componentRequireContext);
+
+import $ from 'jquery';
+
+global.$ = jQuery;
